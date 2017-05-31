@@ -1,0 +1,14 @@
+{
+  "name": "mark-blog-js",
+  "version": "0.0.1",
+  "description": "A simple platform for blogging using markup. Probably something like this already exists",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "gsam1",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
