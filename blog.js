@@ -5,9 +5,15 @@ new Vue({
   },
   // on Ready
   created: function() {
-    this.readMarkdown();
+    console.log(this.getPosts())
   },
-
-
+  methods: {
+    getPosts: function() {
+      var self = this;
+      $.getJSON('/posts/test.json', function(json) {
+        self.data = json;
+      })
+    }
+  }
 
 })
