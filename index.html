@@ -4,6 +4,7 @@
     <!-- Stylecs -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" > -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <!-- jQuery for one thing! -->
     <script
@@ -21,45 +22,45 @@
         <div id="nav" class="box col-xs-4">
 
           <div id="whoami" class="box row">
-            <div class="col-xs-12 well">
+            <div class="col-xs-12">
               <img id="profile-pic" src="/components/profile_pic.jpg" class="img-fluid img-circle" >
+              <div class="center">
+                <a href="https://www.facebook.com/gsamardzhiev"><i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></a>
+                <a href="https://twitter.com/gsamar11"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/georgi-samardzhiev-6b541336/"><i class="fa fa-linkedin-square fa-3x" aria-hidden="true"></i></a>
+                <a href="https://github.com/gsam1"><i class="fa fa-github-square fa-3x" aria-hidden="true"></i></a>
+              </div>
               <p>
-                Lorem ipsum dolor sit amet,
-                consequat complectitur id ius,
-                et sit mentitum liberavisse.
-                Cu mel tation tempor intellegebat,
-                duo nibh numquam intellegat at, omnis accusamus id per.
+                Currently a Radio Network Engineer, interested in Data Science, Machine Learning, Self-Organizing Networks, Full-Stack Web Development (mostly on the back-end) and IoT.
               </p>
             </div>
           </div>
 
           <div id="pick" class="box row">
             <div class="col-xs-12">
-              <p>
-                Lorem ipsum dolor sit amet,
-                consequat complectitur id ius,
-                et sit mentitum liberavisse.
-                Cu mel tation tempor intellegebat,
-                duo nibh numquam intellegat at, omnis accusamus id per.
-              </p>
+              Nav:
+              <ul>
+                <li v-for="article in articles">
+                  <a @click="scrollMeTo(article.title)"> {{ article.title }} </a>
+                </li>
+              </ul>
             </div>
           </div>
 
         </div>
 
         <div id="articles" class="box col-xs-7">
-          <p>
-            Lorem ipsum dolor sit amet,
-            consequat complectitur id ius,
-            et sit mentitum liberavisse.
-            Cu mel tation tempor intellegebat,
-            duo nibh numquam intellegat at, omnis accusamus id per.
-          </p>
+          <ul>
+            <li v-for="article in articles">
+              <h3>{{ article.title }}</h3>
+              <div class="el-article" v-html="article.post" ref="article.title"></div>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
     <!-- Scripts -->
     <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
-    <script src="blog.js"></script>
+    <script src="./bundle.js"></script>
   </body>
 </html>

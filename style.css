@@ -1,10 +1,24 @@
+ul {
+  list-style-type: none;
+}
+
 .box {
   /*background-color: #40d5f7;*/
   margin: 8px;
   border: 3px solid green;
 }
 
+.center {
+  text-align: center;
+}
+
+.el-article {
+  background-color: #bcdbd9;
+  margin: 3px;
+}
+
 #profile-pic {
+  margin: 3px;
   max-width: 100%;
   border: 1px solid black;
 }

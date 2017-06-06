@@ -1,14 +1,25 @@
 {
   "name": "mark-blog-js",
-  "version": "0.0.1",
-  "description": "A simple platform for blogging using markup. Probably something like this already exists",
-  "main": "server.js",
-  "scripts": {
-    "test": "node server.js"
+  "version": "0.1.0",
+  "description": "My personal static site generator from markdown files",
+  "main": "blog.js",
+  "dependencies": {},
+  "devDependencies": {
+    "html-loader": "^0.4.5",
+    "markdown-loader": "^2.0.0",
+    "vue": "^2.3.3"
   },
-  "author": "gsam1",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsam1/mark-blog-js.git"
+  },
+  "author": "Georgi Samardzhiev",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.15.3"
-  }
+  "bugs": {
+    "url": "https://github.com/gsam1/mark-blog-js/issues"
+  },
+  "homepage": "https://github.com/gsam1/mark-blog-js#readme"
 }
