@@ -19,7 +19,7 @@
       </div>
       <div id="content" class="box row">
 
-        <div id="nav" class="box col-xs-4">
+        <div id="nav" class="col-xs-4">
 
           <div id="whoami" class="box row">
             <div class="col-xs-12">
@@ -41,7 +41,7 @@
               Nav:
               <ul>
                 <li v-for="article in articles">
-                  <a @click="scrollMeTo(article.title)"> {{ article.title }} </a>
+                  <a @click="scrollMeTo(article.title, article.id)"> {{ article.title }} </a>
                 </li>
               </ul>
             </div>
@@ -49,11 +49,11 @@
 
         </div>
 
-        <div id="articles" class="box col-xs-7">
+        <div id="articles" class="feed col-xs-7">
           <ul>
             <li v-for="article in articles">
-              <h3>{{ article.title }}</h3>
-              <div class="el-article" v-html="article.post" ref="article.title"></div>
+              <h3 class="article-header" ref="articles">{{ article.title }}</h3>
+              <div v-html="article.post"></div>
             </li>
           </ul>
         </div>

@@ -21,6 +21,14 @@ For simplicity I will put most of the needed JS in this file.
 Some refactoring will be done at a later point
 */
 
+// Directive for tacking a part of the page
+// Vue.directive('tack', {
+//   bind(el, binding, vnode) {
+//     el.style.position = 'fixed';
+//     el.style.top = binding.value + 'px';
+//   }
+// })
+
 // Main articles loop
 var app = new Vue({
   el: '#content',
@@ -31,30 +39,29 @@ var app = new Vue({
   },
   // on Ready
   created: function() {
+    /*
+      Here's an artificial way of creating ids
+    */
+    var id = 0;
     for(key in cache) {
       this.articles.push(
         {
-          'title': key,
+          'id': id,
+          'title': key.slice(2,(key.length-3)),
           'post': cache[key]
         }
       )
-      this.posts.push(cache[key])
-      this.titles.push(key);
+      id++;
     }
     // simple - new-ones at top
     this.articles.reverse();
-    this.posts.reverse();
-    this.titles.reverse();
+    console.log(this.articles);
   },
   // scrollto stuff
   methods: {
-    scrollMeTo(ref) {
-      console.log(ref);
-      console.log(this.$refs[ref]);
-      // var element = this.$refs[ref];
-      // var top = element.offsetTop;
-      //
-      // window.scrollTo(0, top);
+    scrollMeTo(ref, id) {
+      var top = this.$refs.articles[id].offsetTop;
+      window.scrollTo(0, top);
     }
   }
 })

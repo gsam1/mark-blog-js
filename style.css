@@ -12,9 +12,13 @@ ul {
   text-align: center;
 }
 
-.el-article {
+.article-header {
   background-color: #bcdbd9;
   margin: 3px;
+}
+
+.feed {
+  margin-top: 6px;
 }
 
 #profile-pic {
