@@ -59,9 +59,14 @@ var app = new Vue({
   },
   // scrollto stuff
   methods: {
-    scrollMeTo(ref, id) {
-      var top = this.$refs.articles[id].offsetTop;
-      window.scrollTo(0, top);
+    scrollMeTo(ref) {
+      var posts = this.$refs.articles;
+      posts.forEach(function(post) {
+        if(post.innerText == ref) {
+          window.scrollTo(0, post.offsetTop);
+        }
+      })
+      // window.scrollTo(0, top);
     }
   }
 })
