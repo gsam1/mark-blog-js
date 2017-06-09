@@ -6,6 +6,7 @@
     <!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" > -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Khula:400,800" rel="stylesheet">
     <!-- jQuery for one thing! -->
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -14,14 +15,15 @@
   </head>
   <body>
     <div id="blog" class="container">
-      <div id="header" class="box row">
-        Samardzhiev's boring blog
+      <div id="blog-header" class="box row">
+        <h1>Georgi Samardzhiev</h1>
+        <h4>Thoughts, Projects & Ideas</h4>
       </div>
       <div id="content" class="box row" ref="top">
 
         <div id="nav" class="col-xs-4">
 
-          <div id="whoami" class="box row">
+          <div id="whoami" class="side-panel box row">
             <div class="col-xs-12">
               <img id="profile-pic" src="/components/profile_pic.jpg" class="img-fluid img-circle" >
               <div class="center">
@@ -36,9 +38,9 @@
             </div>
           </div>
 
-          <div id="pick" class="box row">
+          <div id="pick" class="side-panel box row">
             <div class="col-xs-12">
-              Nav:
+              <h5 id="nav-posts">Posts</h5>
               <ul>
                 <li v-for="article in articles">
                   <a @click="scrollMeTo(article.title)"> {{ article.title }} </a>
@@ -50,12 +52,14 @@
         </div>
 
         <div id="articles" class="feed col-xs-7">
-          <ul>
+          <ul class="content-posts">
             <li v-for="article in articles">
-              <h3 class="article-header" ref="articles">{{ article.title }}</h3>
+              <div class="article-header">
+                <h3 class="article-header-text" ref="articles">{{ article.title }}</h3>
+              </div>
               <h5 class="article-date">{{ article.date.toDateString() }}</h5>
               <div v-html="article.post"></div>
-              <span class="top"><a @click="gotoTop()">Top</a></span>
+              <div class="top"><a @click="gotoTop()"><i class="fa fa-arrow-up" aria-hidden="true"></i></a></div>
             </li>
           </ul>
         </div>

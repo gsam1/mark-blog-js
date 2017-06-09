@@ -1,11 +1,11 @@
-ul {
+.content-posts {
   list-style-type: none;
 }
 
 .box {
   /*background-color: #40d5f7;*/
   margin: 8px;
-  border: 3px solid green;
+  border: 2px solid #000000;
 }
 
 .center {
@@ -13,20 +13,52 @@ ul {
 }
 
 .article-header {
-  background-color: #bcdbd9;
-  margin: 5px;
+  /*color: #ffffff;*/
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  margin-top: 5px;
+  box-shadow: 5px 5px;
 }
 
 .article-date {
   text-align: right;
 }
 
+.article-header-text {
+  margin-left: 4px;
+}
+
 .feed {
   margin-top: 6px;
+}
+
+.side-panel {
+  box-shadow: 6px 6px;
+}
+
+.top {
+  text-align: right;
 }
 
 #profile-pic {
   margin: 3px;
   max-width: 100%;
-  border: 1px solid black;
+  border: 2px solid black;
+}
+
+#blog-header {
+  font-family: 'Khula', sans-serif;
+  font-weight: 800;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000000;
+  box-shadow: 5px 5px;
+}
+
+#blog {
+  font-family: 'Khula', sans-serif;
+}
+
+#content {
+  box-shadow: 5px 5px;
 }
