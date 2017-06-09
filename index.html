@@ -17,7 +17,7 @@
       <div id="header" class="box row">
         Samardzhiev's boring blog
       </div>
-      <div id="content" class="box row">
+      <div id="content" class="box row" ref="top">
 
         <div id="nav" class="col-xs-4">
 
@@ -41,7 +41,7 @@
               Nav:
               <ul>
                 <li v-for="article in articles">
-                  <a @click="scrollMeTo(article.title, article.id)"> {{ article.title }} </a>
+                  <a @click="scrollMeTo(article.title)"> {{ article.title }} </a>
                 </li>
               </ul>
             </div>
@@ -53,14 +53,16 @@
           <ul>
             <li v-for="article in articles">
               <h3 class="article-header" ref="articles">{{ article.title }}</h3>
+              <h5 class="article-date">{{ article.date.toDateString() }}</h5>
               <div v-html="article.post"></div>
+              <span class="top"><a @click="gotoTop()">Top</a></span>
             </li>
           </ul>
         </div>
       </div>
     </div>
     <!-- Scripts -->
-    <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@2.3.3/dist/vue.min.js"></script>
     <script src="./bundle.js"></script>
   </body>
 </html>

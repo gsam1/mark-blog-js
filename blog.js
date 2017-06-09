@@ -1,5 +1,5 @@
 // Dependencies
-var Vue = require('./node_modules/vue/dist/vue.js');
+var Vue = require('./node_modules/vue/dist/vue.min.js');
 
 /*
   Since I have to load the whole folder /posts into Webpack
@@ -21,41 +21,38 @@ For simplicity I will put most of the needed JS in this file.
 Some refactoring will be done at a later point
 */
 
-// Directive for tacking a part of the page
-// Vue.directive('tack', {
-//   bind(el, binding, vnode) {
-//     el.style.position = 'fixed';
-//     el.style.top = binding.value + 'px';
-//   }
-// })
 
 // Main articles loop
 var app = new Vue({
   el: '#content',
   data: {
-    articles: [],
-    titles: [],
-    posts: []
+    articles: []
   },
   // on Ready
   created: function() {
     /*
       Here's an artificial way of creating ids
     */
-    var id = 0;
     for(key in cache) {
+      // some date construct
+      var year = key.slice(2,6);
+      var month = key.slice(6,8);
+      var day = key.slice(8,10);
+      // building the date string with time 00:00:00
+      var date = new Date(year+"-"+month+"-"+day+"T00:00:00");
+      // pushing to a common object
       this.articles.push(
         {
-          'id': id,
-          'title': key.slice(2,(key.length-3)),
+          'date' : date,
+          'title': key.slice(11,(key.length-3)),
           'post': cache[key]
         }
       )
-      id++;
     }
     // simple - new-ones at top
-    this.articles.reverse();
-    console.log(this.articles);
+    this.articles.sort(function(d1, d2) {
+      return d2.date - d1.date;
+    });
   },
   // scrollto stuff
   methods: {
@@ -66,7 +63,9 @@ var app = new Vue({
           window.scrollTo(0, post.offsetTop);
         }
       })
-      // window.scrollTo(0, top);
+    },
+    gotoTop() {
+      window.scrollTo(0, this.$refs['top'].offsetTop);
     }
   }
 })

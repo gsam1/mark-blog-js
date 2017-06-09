@@ -14,7 +14,11 @@ ul {
 
 .article-header {
   background-color: #bcdbd9;
-  margin: 3px;
+  margin: 5px;
+}
+
+.article-date {
+  text-align: right;
 }
 
 .feed {
